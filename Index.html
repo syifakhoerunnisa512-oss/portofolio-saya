@@ -1,0 +1,308 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Data Diri - Syifa Khoirunnisa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                            900: '#831843',
+                        },
+                        slate: {
+                            850: '#172033',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-700">
+
+    <!-- Navbar Atas -->
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-rose-500 flex items-center justify-center text-white font-bold shadow-sm">
+                    <i class="fa-solid fa-id-card-clip"></i>
+                </div>
+                <span class="font-heading font-bold text-lg tracking-tight text-slate-900">My<span class="text-indigo-600">Portfolio</span></span>
+            </div>
+
+            <!-- Navigasi Cepat (Desktop) -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a href="#profil" class="hover:text-indigo-600 transition-colors">Profil</a>
+                <a href="#identitas" class="hover:text-indigo-600 transition-colors">Identitas Diri</a>
+                <a href="#portofolio" class="hover:text-indigo-600 transition-colors">Data Portofolio</a>
+            </nav>
+
+            <!-- Tombol Menu Utama Identitas & Reset -->
+            <div class="flex items-center gap-2">
+                <button onclick="bukaModalToken()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-xs sm:text-sm font-semibold shadow-sm shadow-indigo-200 transition-all cursor-pointer">
+                    <i class="fa-solid fa-lock text-indigo-200"></i>
+                    <span>Menu Identitas</span>
+                </button>
+                <button onclick="bukaModalReset()" title="Reset ke Data Awal" class="p-2.5 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-rotate-left text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- 1. HERO / PROFIL UTAMA & KONTAK -->
+        <section id="profil" class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-sm">
+            <!-- Banner Latar -->
+            <div class="h-36 sm:h-44 bg-gradient-to-r from-indigo-600 via-purple-600 to-rose-500 relative">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            </div>
+
+            <div class="px-6 sm:px-10 pb-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 -mt-16 sm:-mt-20 relative z-10">
+                    <!-- Foto Profil & Nama -->
+                    <div class="flex flex-col sm:flex-row items-center sm:items-end gap-5 text-center sm:text-left">
+                        <div class="relative group">
+                            <img id="display-foto" 
+                                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" 
+                                 onerror="this.src='https://placehold.co/300x300/6366f1/ffffff?text=Foto+Profil'"
+                                 alt="Foto Profil" 
+                                 class="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl object-cover border-4 border-white shadow-lg bg-slate-100">
+                            <button onclick="bukaModalToken()" title="Ubah Foto & Identitas (Perlu Token)" class="absolute bottom-2 right-2 w-9 h-9 rounded-xl bg-slate-900/80 hover:bg-indigo-600 text-white flex items-center justify-center shadow-md backdrop-blur-sm transition-all cursor-pointer">
+                                <i class="fa-solid fa-camera text-xs"></i>
+                            </button>
+                        </div>
+                        <div class="pb-1">
+                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold mb-2">
+                                <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                                Portofolio Pribadi & Biodata
+                            </div>
+                            <h1 id="display-nama-hero" class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                                Syifa Khoirunnisa
+                            </h1>
+                            <p id="display-tagline" class="text-slate-500 text-sm sm:text-base mt-1 max-w-xl">
+                                Pelajar / Mahasiswa Aktif • Kreatif, Disiplin, dan Berdedikasi Tinggi dalam Pengembangan Diri & Organisasi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Kontak Langsung (WhatsApp & Instagram) -->
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start md:justify-end gap-3">
+                        <a id="link-wa" href="https://wa.me/6281958143180" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white border border-emerald-200 hover:border-emerald-600 text-sm font-semibold transition-all shadow-xs">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span id="display-wa">+62 819-5814-3180</span>
+                        </a>
+                        <a id="link-ig" href="https://instagram.com/syifrrnnisa" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-rose-50 hover:bg-gradient-to-r hover:from-purple-600 hover:to-rose-500 text-rose-700 hover:text-white border border-rose-200 hover:border-transparent text-sm font-semibold transition-all shadow-xs">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                            <span id="display-ig">@syifrrnnisa</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. IDENTITAS DIRI (DILINDUNGI TOKEN) -->
+        <section id="identitas" class="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading text-xl font-bold text-slate-900">Identitas Diri Lengkap</h2>
+                        <p class="text-xs sm:text-sm text-slate-500">Data biodata pribadi resmi (dilindungi token keamanan)</p>
+                    </div>
+                </div>
+
+                <!-- Tombol Menu Pengisian Data Identitas -->
+                <button onclick="bukaModalToken()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-sm font-semibold transition-all shadow-sm cursor-pointer">
+                    <i class="fa-solid fa-key text-amber-400"></i>
+                    <span>Isi / Edit Data Identitas</span>
+                </button>
+            </div>
+
+            <!-- Grid Biodata -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6">
+                <!-- Nama Lengkap -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-user text-indigo-500"></i> Nama Lengkap
+                    </div>
+                    <p id="id-nama" class="font-semibold text-slate-800 text-base">Syifa Khoirunnisa</p>
+                </div>
+
+                <!-- Tanggal Lahir -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-calendar-days text-rose-500"></i> Tanggal Lahir
+                    </div>
+                    <p id="id-tgllahir" class="font-semibold text-slate-800 text-base">15 Mei 2005</p>
+                </div>
+
+                <!-- Jenis Kelamin -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-venus-mars text-purple-500"></i> Jenis Kelamin
+                    </div>
+                    <p id="id-gender" class="font-semibold text-slate-800 text-base">Perempuan</p>
+                </div>
+
+                <!-- Status -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-user-check text-emerald-500"></i> Status
+                    </div>
+                    <p id="id-status" class="font-semibold text-slate-800 text-base">Belum Menikah / Pelajar</p>
+                </div>
+
+                <!-- Nama Orang Tua -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-people-roof text-amber-500"></i> Nama Orang Tua
+                    </div>
+                    <p id="id-ortu" class="font-semibold text-slate-800 text-base">Bapak Ahmad & Ibu Siti Aminah</p>
+                </div>
+
+                <!-- Hobi -->
+                <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-heart text-pink-500"></i> Hobi
+                    </div>
+                    <p id="id-hobi" class="font-semibold text-slate-800 text-base">Desain Grafis, Membaca, Fotografi</p>
+                </div>
+
+                <!-- Alamat (Full Width) -->
+                <div class="sm:col-span-2 lg:col-span-3 p-4 rounded-2xl bg-slate-50/80 border border-slate-100 hover:border-indigo-100 transition-colors">
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                        <i class="fa-solid fa-location-dot text-sky-500"></i> Alamat Lengkap
+                    </div>
+                    <p id="id-alamat" class="font-semibold text-slate-800 text-base">Jl. Merdeka No. 45, Kec. Tawang, Kota Tasikmalaya, Jawa Barat</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DATA PORTOFOLIO LENGKAP (6 KATEGORI DENGAN TOMBOL KELOLA MASING-MASING) -->
+        <section id="portofolio" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="font-heading text-2xl font-bold text-slate-900">Rekam Jejak & Portofolio</h2>
+                    <p class="text-sm text-slate-500">Klik tombol <span class="font-semibold text-indigo-600">+ Kelola Data</span> pada setiap kartu untuk menambah, mengubah, atau menghapus data.</p>
+                </div>
+            </div>
+
+            <!-- Grid 6 Bagian Portofolio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="portfolio-grid">
+                <!-- Dirender secara dinamis melalui JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-slate-200 bg-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+            <p>&copy; <span id="tahun-sekarang"></span> <span id="footer-nama" class="font-semibold text-slate-700">Syifa Khoirunnisa</span>. Hak Cipta Dilindungi.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/6281958143180" target="_blank" class="hover:text-emerald-600 transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp"></i> +62 819-5814-3180
+                </a>
+                <span>•</span>
+                <a href="https://instagram.com/syifrrnnisa" target="_blank" class="hover:text-rose-600 transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram"></i> @syifrrnnisa
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 1: VERIFIKASI TOKEN / PASSWORD IDENTITAS                        -->
+    <!-- ===================================================================== -->
+    <div id="modal-token" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 transform transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <button onclick="tutupModal('modal-token')" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <h3 class="font-heading text-xl font-bold text-slate-900">Keamanan Menu Identitas</h3>
+            <p class="text-sm text-slate-500 mt-1">Masukkan token atau password akses untuk membuka formulir pengisian dan pembaruan Data Identitas.</p>
+
+            <form onsubmit="verifikasiToken(event)" class="mt-5 space-y-4">
+                <div>
+                    <label for="input-token" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Token / Password</label>
+                    <div class="relative">
+                        <input type="password" id="input-token" placeholder="Masukkan token akses..." required
+                               class="w-full px-4 py-3 pr-11 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-sm font-medium transition-all">
+                        <button type="button" onclick="toggleLihatPassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer">
+                            <i id="icon-eye" class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <p id="error-token" class="hidden text-xs font-medium text-rose-600 mt-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-exclamation"></i> Token salah! Silakan periksa kembali password Anda.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-end gap-2.5 pt-2">
+                    <button type="button" onclick="tutupModal('modal-token')" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition-colors cursor-pointer">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-sm transition-colors cursor-pointer">
+                        Buka Menu Identitas
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 2: FORM EDIT IDENTITAS DIRI & PROFIL                            -->
+    <!-- ===================================================================== -->
+    <div id="modal-identitas" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-100 my-8">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-900">Form Pengisian Data Identitas</h3>
+                        <p class="text-xs text-emerald-600 font-medium"><i class="fa-solid fa-unlock"></i> Akses terverifikasi</p>
+                    </div>
+                </div>
+                <button onclick="tutupModal('modal-identitas')" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form onsubmit="simpanIdent
